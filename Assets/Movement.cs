@@ -44,5 +44,32 @@ public class Movement : MonoBehaviour
             this.transform.position = position;
         }
         
+        
+        //"grapple" movement:
+        if (Input.GetKey("up"))
+        {
+            position = this.transform.position;
+            position.z += move2;
+            this.transform.position = position;
+        }
+        if (Input.GetKey("left"))
+        {
+            position = this.transform.position;
+            position.x -= move2;
+            this.transform.position = position;
+        }
+        if (Input.GetKey("down"))
+        {
+            position = this.transform.position;
+            position.z -= move2;
+            this.transform.position = position;
+        }
+        if (Input.GetKey("right"))
+        {
+            position = this.transform.position;
+            position.x += move2;
+            this.transform.position = position;
+        }
+        
     }
 }
