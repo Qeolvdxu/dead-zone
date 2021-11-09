@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     [Header("Inspector - Set Values")]
     public float movementSpeed;
+    public float move2;
 
 
 
