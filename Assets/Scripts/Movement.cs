@@ -8,7 +8,6 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     public float move2;
     private Rigidbody rigid;
-    private Grapple grappleScript; //Used to grab variables from Grapple script on same object
 
 
 
@@ -16,8 +15,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        grappleScript = GetComponent<Grapple>();
-
     }
 
     // Update is called once per frame
@@ -56,7 +53,7 @@ public class Movement : MonoBehaviour
 
     void DirectionalMovement()
     {
-        //Move player with velocity
+        //Move player with velocity and only when not using grappling hook
         if (Input.GetKey("w"))
         {
             rigid.velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z + movementSpeed);
@@ -81,19 +78,6 @@ public class Movement : MonoBehaviour
     {
         //Make the player face in the direction they're moving
         this.transform.rotation = Quaternion.LookRotation(rigid.velocity);
-    }
-
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Bullet")
-        {
-            print("test");
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-        }
-
     }
 
 }

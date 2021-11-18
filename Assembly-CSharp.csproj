@@ -66,11 +66,14 @@
   <ItemGroup>
     <Compile Include="Assets\lightDecay.cs" />
     <Compile Include="Assets\Scripts\angler.cs" />
-    <Compile Include="Assets\Scripts\Grapple.cs" />
+    <Compile Include="Assets\Scripts\angler_scr.cs" />
     <Compile Include="Assets\Scripts\GrappleHook.cs" />
+    <Compile Include="Assets\Scripts\GrappleUse.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\MoveWithPlayer.cs" />
     <Compile Include="Assets\Scripts\MoveWithPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\MoveWithPlayerLantern.cs" />
+    <Compile Include="Assets\Scripts\test.cs" />
     <Compile Include="Assets\testlight.cs" />
     <None Include="Assets\Scenes\blank.txt" />
     <None Include="Assets\Scripts\blank.txt" />

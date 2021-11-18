@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8465149761297155087}
   - component: {fileID: 2823063541967825353}
   - component: {fileID: 7073281817938879203}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrappleHook
   m_TagString: Hook
   m_Icon: {fileID: 0}
@@ -122,3 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacd786ef3d703c4ca3d3eefd1faf3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTest: {fileID: 0}
+  grappleLength: 60
