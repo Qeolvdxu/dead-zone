@@ -9,9 +9,11 @@ public class GrappleUse : MonoBehaviour
     public static GrappleUse grappleInstance; // Used so other scripts can access the public methods here
     public float hookVelocity;
     public float grappleCooldown;
+    public float grappleTreasureForce;
     private bool isGrappling = false;
     private int directionFlag;
     private Rigidbody rigid;
+    private Rigidbody rigidTreasure;
 
 
     // Start is called before the first frame update
@@ -116,6 +118,14 @@ public class GrappleUse : MonoBehaviour
         //apply the velocity vector and scale it to adjust grappling speed
         rigid.velocity = direction*6;
         
+    }
+
+    public void GrappleTreasure(GameObject treasure)
+    {
+        rigidTreasure = treasure.GetComponent<Rigidbody>();
+        Vector3 direction;
+        direction = new Vector3(this.transform.position.x - treasure.transform.position.x, this.transform.position.y - treasure.transform.position.y, this.transform.position.z - treasure.transform.position.z);
+        rigidTreasure.velocity = direction*grappleTreasureForce;
     }
 
 }

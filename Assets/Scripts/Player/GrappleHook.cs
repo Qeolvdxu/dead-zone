@@ -29,16 +29,20 @@ public class GrappleHook : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Disable collider and set velocity to 0 so the hook doesn't go anywhere after hitting the wall
+        Collider self = GetComponent<Collider>();
+        Rigidbody rigid = GetComponent<Rigidbody>();
+        rigid.velocity = Vector3.zero;
+        self.enabled = false;
         if (collision.gameObject.tag == "Wall")
         {
-            //Disable collider and set velocity to 0 so the hook doesn't go anywhere after hitting the wall
-            Collider self = GetComponent<Collider>();
-            Rigidbody rigid = GetComponent<Rigidbody>();
-            rigid.velocity = Vector3.zero;
-            self.enabled = false;
-
             GrappleUse.grappleInstance.GrapplePull(this.transform.position);
             StartCoroutine(destroySelfAfterSeconds(0.5f));
+        }
+        else if(collision.gameObject.tag == "Treasure")
+        {
+            GrappleUse.grappleInstance.GrappleTreasure(collision.gameObject);
+            Destroy(this.gameObject);
         }
         else
         {

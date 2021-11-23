@@ -65,15 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\lightDecay.cs" />
-    <Compile Include="Assets\Scripts\angler.cs" />
-    <Compile Include="Assets\Scripts\angler_scr.cs" />
-    <Compile Include="Assets\Scripts\GrappleHook.cs" />
-    <Compile Include="Assets\Scripts\GrappleUse.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\MoveWithPlayer.cs" />
-    <Compile Include="Assets\Scripts\MoveWithPlayerCamera.cs" />
-    <Compile Include="Assets\Scripts\MoveWithPlayerLantern.cs" />
-    <Compile Include="Assets\Scripts\test.cs" />
+    <Compile Include="Assets\Scripts\Angler\angler.cs" />
+    <Compile Include="Assets\Scripts\Player\GrappleHook.cs" />
+    <Compile Include="Assets\Scripts\Player\GrappleUse.cs" />
+    <Compile Include="Assets\Scripts\Player\Movement.cs" />
+    <Compile Include="Assets\Scripts\Player\MoveWithPlayer.cs" />
+    <Compile Include="Assets\Scripts\Player\MoveWithPlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\Player\MoveWithPlayerLantern.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerScore.cs" />
+    <Compile Include="Assets\Scripts\Treasure\OptionalTreasureCollide.cs" />
+    <Compile Include="Assets\Scripts\Treasure\OptionalTreasureFloat.cs" />
+    <Compile Include="Assets\Scripts\Treasure\TreasureVelocityDampener.cs" />
     <Compile Include="Assets\testlight.cs" />
     <None Include="Assets\Scenes\blank.txt" />
     <None Include="Assets\Scripts\blank.txt" />

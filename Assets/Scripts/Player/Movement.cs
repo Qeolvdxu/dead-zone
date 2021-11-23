@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     [Header("Inspector - Set Values")]
     public float movementSpeed;
-    public float move2;
     private Rigidbody rigid;
 
 
@@ -23,6 +22,7 @@ public class Movement : MonoBehaviour
         DirectionalMovement();
         VelocityDampener();
         FacingDirection();
+        rigid.AddForce(Physics.gravity * rigid.mass * 10);
     }
 
     void VelocityDampener()
@@ -77,7 +77,10 @@ public class Movement : MonoBehaviour
     private void FacingDirection()
     {
         //Make the player face in the direction they're moving
-        this.transform.rotation = Quaternion.LookRotation(rigid.velocity);
+        if(rigid.velocity != Vector3.zero)
+        {
+            this.transform.rotation = Quaternion.LookRotation(rigid.velocity);
+        }
     }
 
 }
