@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class angler_scr : MonoBehaviour
+public class angler : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject player;
