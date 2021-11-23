@@ -6,12 +6,12 @@ public class MoveWithPlayerCamera : MonoBehaviour
 {
     [Header("Inspector - Set Values")]
     public GameObject player;
-    public float linearInterpolant;
+    private float linearInterpolant;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        linearInterpolant = 0.05f;
     }
 
     // Update is called once per frame
@@ -25,7 +25,6 @@ public class MoveWithPlayerCamera : MonoBehaviour
         playerPosition.y = yPosition;
 
         
-
         this.transform.position = playerPosition;
     }
 }
