@@ -284,6 +284,8 @@ GameObject:
   - component: {fileID: 6917828949114057857}
   - component: {fileID: 4803040832497805869}
   - component: {fileID: 6241865947165749994}
+  - component: {fileID: 539106539309802316}
+  - component: {fileID: 6709651220790674091}
   m_Layer: 0
   m_Name: OptionalTreasure
   m_TagString: TreasureOpt
@@ -334,5 +336,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec486fd85d31ffc44964e2b60582d735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!33 &539106539309802316
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917828949114057918}
+  m_Mesh: {fileID: 0}
+--- !u!114 &6709651220790674091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917828949114057918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0afc378702ab0429f0fc5f95b71409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
