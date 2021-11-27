@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Treasure
   - TreasureOpt
+  - Death
   layers:
   - Default
   - TransparentFX

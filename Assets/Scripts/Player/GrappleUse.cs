@@ -79,19 +79,19 @@ public class GrappleUse : MonoBehaviour
         {
             //WILL NEED TO CHANGE THE TRANSFORM VALUES BELOW IF THE SIZE/SHAPE OF THE PLAYER CHANGES LATER TO MAKE SURE IT GETS CREATED JUST OUTSIDE OF THE PLAYER'S MODEL
             case 0:
-                localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 11f);
+                localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y-4, this.transform.position.z + 11f);
                 hookRigid.velocity = new Vector3(0.0f, 0.0f, hookVelocity);
                 break;
             case 1:
-                localHook.transform.position = new Vector3(this.transform.position.x - 11f, this.transform.position.y, this.transform.position.z);
+                localHook.transform.position = new Vector3(this.transform.position.x - 11f, this.transform.position.y-4, this.transform.position.z);
                 hookRigid.velocity = new Vector3(-hookVelocity, 0.0f, 0.0f);
                 break;
             case 2:
-                localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - 11f);
+                localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y-4, this.transform.position.z - 11f);
                 hookRigid.velocity = new Vector3(0.0f, 0.0f, -hookVelocity);
                 break;
             case 3:
-                localHook.transform.position = new Vector3(this.transform.position.x + 11f, this.transform.position.y, this.transform.position.z);
+                localHook.transform.position = new Vector3(this.transform.position.x + 11f, this.transform.position.y-4, this.transform.position.z);
                 hookRigid.velocity = new Vector3(hookVelocity, 0.0f, 0.0f);
                 break;
         }
@@ -111,12 +111,12 @@ public class GrappleUse : MonoBehaviour
 
     public void GrapplePull(Vector3 grappleLocation)
     {
-        isGrappling = false;
+        StartCoroutine(GrappleCooldown());
         Vector3 direction;
         //Get the vector going from the player to the location to grapple towards
         direction = new Vector3(grappleLocation.x - this.transform.position.x, grappleLocation.y - this.transform.position.y, grappleLocation.z - this.transform.position.z);
         //apply the velocity vector and scale it to adjust grappling speed
-        rigid.velocity = direction*6;
+        rigid.velocity = direction*8;
         
     }
 
