@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreasureVelocityDampener : MonoBehaviour
+public class TreasureMovement : MonoBehaviour
 {
     private Rigidbody rigid;
+    private Vector3 spawnPosition;
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        spawnPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -43,5 +45,13 @@ public class TreasureVelocityDampener : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        //If the main treasure falls into a pit, it gets teleported back to where it originally spawned at
+        if(collision.gameObject.tag == "Death")
+        {
+            this.transform.position = spawnPosition;
+        }
+    }
 }
     
