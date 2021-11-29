@@ -16,10 +16,6 @@ public class MoveWithPlayerLantern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPosition;
-        playerPosition = this.transform.position;
-        playerPosition.x = player.transform.position.x;
-        playerPosition.z = player.transform.position.z;
-        this.transform.position = playerPosition;
+        this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 25, player.transform.position.z);
     }
 }
