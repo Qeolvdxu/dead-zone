@@ -9,6 +9,7 @@ public class GrappleUse : MonoBehaviour
     public static GrappleUse grappleInstance; // Used so other scripts can access the public methods here
     public float hookVelocity;
     public float grappleCooldown;
+    public bool grappleAllowed = true;
     public float grappleTreasureForce;
     private bool isGrappling = false;
     private int directionFlag;
@@ -32,7 +33,7 @@ public class GrappleUse : MonoBehaviour
     void DirectionButton()
     {
         //Detect when player presses an arrow key, and set a flag to indicate which direction, and start the grapple cooldown timer
-        if(Input.GetKeyDown("up") && !isGrappling)
+        if(Input.GetKeyDown("up") && !isGrappling && grappleAllowed)
         {
             isGrappling = true;
             directionFlag = 0;
@@ -40,21 +41,21 @@ public class GrappleUse : MonoBehaviour
             StartCoroutine(GrappleCooldown());
             
         }
-        if (Input.GetKeyDown("left") && !isGrappling)
+        if (Input.GetKeyDown("left") && !isGrappling && grappleAllowed)
         {
             isGrappling = true;
             directionFlag = 1;
             ShootGrapple();
             StartCoroutine(GrappleCooldown());
         }
-        if (Input.GetKeyDown("down") && !isGrappling)
+        if (Input.GetKeyDown("down") && !isGrappling && grappleAllowed)
         {
             isGrappling = true;
             directionFlag = 2;
             ShootGrapple();
             StartCoroutine(GrappleCooldown());
         }
-        if (Input.GetKeyDown("right") && !isGrappling)
+        if (Input.GetKeyDown("right") && !isGrappling && grappleAllowed)
         {
             isGrappling = true;
             directionFlag = 3;
