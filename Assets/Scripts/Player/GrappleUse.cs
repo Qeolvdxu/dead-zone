@@ -9,7 +9,7 @@ public class GrappleUse : MonoBehaviour
     public static GrappleUse grappleInstance; // Used so other scripts can access the public methods here
     public float hookVelocity;
     public float grappleCooldown;
-    public bool grappleAllowed = true;
+    public bool grappleAllowed;
     public float grappleTreasureForce;
     private bool isGrappling = false;
     private int directionFlag;
@@ -127,6 +127,11 @@ public class GrappleUse : MonoBehaviour
         Vector3 direction;
         direction = new Vector3(this.transform.position.x - treasure.transform.position.x, this.transform.position.y - treasure.transform.position.y, this.transform.position.z - treasure.transform.position.z);
         rigidTreasure.velocity = direction*grappleTreasureForce;
+    }
+
+    public void EnableGrapple()
+    {
+        grappleAllowed = true;
     }
 
 }
