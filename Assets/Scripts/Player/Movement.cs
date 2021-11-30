@@ -9,8 +9,6 @@ public class Movement : MonoBehaviour
     private Rigidbody rigid;
     private Vector3 spawnPosition;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
