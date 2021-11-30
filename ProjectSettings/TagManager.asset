@@ -9,6 +9,7 @@ TagManager:
   - Treasure
   - TreasureOpt
   - Death
+  - AnglerFish
   layers:
   - Default
   - TransparentFX
