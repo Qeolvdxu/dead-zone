@@ -21,6 +21,7 @@ public class OpenExit : MonoBehaviour
         if(Mathf.Sqrt(Mathf.Pow((this.transform.position.x - mainTreasureLocation.x), 2) + Mathf.Pow((this.transform.position.y - mainTreasureLocation.y), 2) + Mathf.Pow((this.transform.position.z - mainTreasureLocation.z), 2)) < 25.0f)
         {
             Destroy(this.gameObject);
+            GrappleUse.grappleInstance.EnableGrapple();
         }
         playerLocation = GetPlayerPosition.player.GetPosition();
         if (Vector3.Distance(this.transform.position, playerLocation) < 50.0f)
