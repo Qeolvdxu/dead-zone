@@ -5,7 +5,7 @@ using UnityEngine;
 public class OptionalTreasureFloat : MonoBehaviour
 {
     [Header("Inspector - Set Values")]
-    public float speed;
+    public float speed = 2;
     private Vector3 spawnPosition;
     
     // Start is called before the first frame update
