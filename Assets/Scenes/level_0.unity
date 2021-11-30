@@ -1506,6 +1506,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5360251335886547692, guid: 2b65e2c9d8ea0dc498d401213648fe65,
+        type: 3}
+      propertyPath: grappleAllowed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b65e2c9d8ea0dc498d401213648fe65, type: 3}
 --- !u!1 &1233748965
@@ -2672,7 +2677,7 @@ PrefabInstance:
     - target: {fileID: 1035422145978154030, guid: 7cc32567e509b114ebab1046915f2963,
         type: 3}
       propertyPath: m_Name
-      value: ExitWall
+      value: HookUnlock
       objectReference: {fileID: 0}
     - target: {fileID: 4218547181190436907, guid: 7cc32567e509b114ebab1046915f2963,
         type: 3}
@@ -2764,6 +2769,26 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Bring Main\nTreasure close to\nunlock Grapple\n(\u2190 \u2192 \u2191
         \u2193)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 350337680295193846, guid: 7cc32567e509b114ebab1046915f2963,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145746463069972040, guid: 7cc32567e509b114ebab1046915f2963,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145746463069972040, guid: 7cc32567e509b114ebab1046915f2963,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636346842352663583, guid: 7cc32567e509b114ebab1046915f2963,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc32567e509b114ebab1046915f2963, type: 3}
