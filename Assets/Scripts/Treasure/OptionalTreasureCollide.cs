@@ -5,10 +5,13 @@ using UnityEngine;
 public class OptionalTreasureCollide : MonoBehaviour
 {
     private bool hasCollided = false;
+    private Light light;
+    public float rangeAdd;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        light = GetComponentInChildren<Light>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,12 @@ public class OptionalTreasureCollide : MonoBehaviour
                 StartCoroutine(resetCollider());
             }
             
+        }
+        if (collision.gameObject.tag == "Fuel")
+        {
+            light.range += rangeAdd;
+            Destroy(collision.gameObject);
+            StartCoroutine(resetCollider());
         }
     }
 
