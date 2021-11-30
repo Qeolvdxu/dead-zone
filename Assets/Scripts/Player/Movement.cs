@@ -9,7 +9,20 @@ public class Movement : MonoBehaviour
     private Rigidbody rigid;
     private Vector3 spawnPosition;
 
-
+      function OnTriggerStay(other:Collider){
+                 
+                 if(other.gameObject.tag == "platform"){
+                 transform.parent = other.transform;
+     
+             }
+         }
+     
+     function OnTriggerExit(other:Collider){
+         if(other.gameObject.tag == "platform"){
+                 transform.parent = null;
+                 
+             }
+         }    
 
     // Start is called before the first frame update
     void Start()
