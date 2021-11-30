@@ -23,6 +23,7 @@ public class PlayerScore : MonoBehaviour
     public void IncreaseScore(int increaseAmount)
     {
         score += increaseAmount;
+        HUD.playerHUD.UpdateScore(score);
         print("Score is: " + score);
     }
 

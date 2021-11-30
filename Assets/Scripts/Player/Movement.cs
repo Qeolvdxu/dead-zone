@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
     [Header("Inspector - Set Values")]
     public float movementSpeed;
     private Rigidbody rigid;
-    private Vector3 spawnPosition;
+    public static Movement player;
+    public GameObject gameoverText;
+    public static int test = 0;
 
 
 
@@ -15,7 +18,8 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        spawnPosition = this.transform.position;
+        player = GetComponent<Movement>();
+        print("Test: " + test);
     }
 
     // Update is called once per frame
@@ -101,13 +105,16 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+   public void EndGame()
     {
-        //If the main treasure falls into a pit, it gets teleported back to where it originally spawned at
-        if (collision.gameObject.tag == "Death")
-        {
-            this.transform.position = spawnPosition;
-        }
+        test++;
+        GameObject localText;
+        Vector3 gameOverLocation = MoveWithPlayerCamera.cameraInstance.GetCameraPosition();
+        gameOverLocation.y = gameOverLocation.y - 20.0f;
+        localText = Instantiate<GameObject>(gameoverText);
+        gameoverText.transform.position = gameOverLocation;
+        Destroy(this.gameObject);
+        SceneManager.LoadScene("level_0");
     }
 
 
