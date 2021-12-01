@@ -30,7 +30,7 @@ public class GrappleUse : MonoBehaviour
     void Update()
     {
         DirectionButton();
-        if(Vector3.Distance(this.transform.position, hookLocation) < 15.0f)
+        if(Vector3.Distance(this.transform.position, hookLocation) < 25.0f)
         {
             unclampMagnitude = false;
         }
