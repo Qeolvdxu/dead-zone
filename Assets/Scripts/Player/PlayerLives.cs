@@ -6,7 +6,7 @@ public class PlayerLives : MonoBehaviour
 {
     public static PlayerLives PLives;
     private Vector3 spawnPosition;
-    private static int numLives = 3;
+    private int numLives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class PlayerLives : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //If the main treasure falls into a pit, it gets teleported back to where it originally spawned at
+        //If the player falls into a death pit, or collides w/ the angler, the player respawns and loses a life
         if (collision.gameObject.tag == "Death" || collision.gameObject.tag == "Angler")
         {
             HUD.playerHUD.RemoveLife();

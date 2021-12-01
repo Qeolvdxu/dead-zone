@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -102,8 +101,14 @@ public class Movement : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Exit")
+        {
+            LevelHandler.levelHandlerInstance.NextLevel();
+        }
+    }
 
-    
     private void FacingDirection()
     {
         //Make the player face in the direction they're moving
@@ -137,7 +142,7 @@ public class Movement : MonoBehaviour
     IEnumerator Gameover()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("level_0");
+        LevelHandler.levelHandlerInstance.Gameover();
     }
 
 }
