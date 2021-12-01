@@ -37,6 +37,7 @@ public class GrappleHook : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             GrappleUse.grappleInstance.GrapplePull(this.transform.position);
+            GrappleUse.grappleInstance.updateHookLocation(this.transform.position);
             StartCoroutine(destroySelfAfterSeconds(0.5f));
         }
         else if(collision.gameObject.tag == "Treasure")

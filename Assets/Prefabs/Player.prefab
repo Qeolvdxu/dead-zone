@@ -448,7 +448,7 @@ MonoBehaviour:
   grapplingHookPrefab: {fileID: 1101902478191476964, guid: c759fc3bf5096ca45a48c224fc186a6a,
     type: 3}
   hookVelocity: 100
-  grappleCooldown: 1
+  grappleCooldown: 0.8
   grappleAllowed: 0
   grappleTreasureForce: 2
 --- !u!114 &5360251335886547693

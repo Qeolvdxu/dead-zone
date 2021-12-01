@@ -64,7 +64,7 @@ public class Movement : MonoBehaviour
             if (Input.GetKey("w"))
             {
                 Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z + movementSpeed);
-                if (!GrappleUse.grappleInstance.TestGrappling())
+                if (!GrappleUse.grappleInstance.TestClampMagnitude())
                 {
                     velocity = Vector3.ClampMagnitude(velocity, 50.0f);
                 }
@@ -73,7 +73,7 @@ public class Movement : MonoBehaviour
             if (Input.GetKey("a"))
             {
                 Vector3 velocity = new Vector3(rigid.velocity.x - movementSpeed, rigid.velocity.y, rigid.velocity.z);
-                if (!GrappleUse.grappleInstance.TestGrappling())
+                if (!GrappleUse.grappleInstance.TestClampMagnitude())
                 {
                     velocity = Vector3.ClampMagnitude(velocity, 50.0f);
                 }
@@ -82,7 +82,7 @@ public class Movement : MonoBehaviour
             if (Input.GetKey("s"))
             {
                 Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z - movementSpeed);
-                if (!GrappleUse.grappleInstance.TestGrappling())
+                if (!GrappleUse.grappleInstance.TestClampMagnitude())
                 {
                     velocity = Vector3.ClampMagnitude(velocity, 50.0f);
                 }
@@ -91,7 +91,7 @@ public class Movement : MonoBehaviour
             if (Input.GetKey("d"))
             {
                 Vector3 velocity = new Vector3(rigid.velocity.x + movementSpeed, rigid.velocity.y, rigid.velocity.z);
-                if (!GrappleUse.grappleInstance.TestGrappling())
+                if (!GrappleUse.grappleInstance.TestClampMagnitude())
                 {
                     velocity = Vector3.ClampMagnitude(velocity, 50.0f);
                 }
