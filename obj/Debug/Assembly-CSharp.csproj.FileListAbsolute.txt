@@ -1,0 +1,2 @@
+F:\College\CS 347\Final Project\dead-zone-player\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+F:\College\CS 347\Final Project\dead-zone-player\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
