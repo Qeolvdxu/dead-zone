@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
@@ -53,8 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\lightDecay.cs" />
      <Compile Include="Assets\Scripts\Angler\angler.cs" />
+     <Compile Include="Assets\Scripts\beeping.cs" />
+     <Compile Include="Assets\Scripts\lightDecay.cs" />
      <Compile Include="Assets\Scripts\MovingPlat.cs" />
      <Compile Include="Assets\Scripts\OpenExit.cs" />
      <Compile Include="Assets\Scripts\Player\GetPlayerPosition.cs" />
@@ -63,34 +64,34 @@
      <Compile Include="Assets\Scripts\Player\Movement.cs" />
      <Compile Include="Assets\Scripts\Player\MoveWithPlayer.cs" />
      <Compile Include="Assets\Scripts\Player\MoveWithPlayerCamera.cs" />
-     <Compile Include="Assets\Scripts\Player\MoveWithPlayerLantern.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScore.cs" />
      <Compile Include="Assets\Scripts\Sticky.cs" />
+     <Compile Include="Assets\Scripts\testlight.cs" />
      <Compile Include="Assets\Scripts\Treasure\colorCahnger.cs" />
      <Compile Include="Assets\Scripts\Treasure\GetTreasurePosition.cs" />
      <Compile Include="Assets\Scripts\Treasure\OptionalTreasureCollide.cs" />
      <Compile Include="Assets\Scripts\Treasure\OptionalTreasureFloat.cs" />
      <Compile Include="Assets\Scripts\Treasure\TreasureMovement.cs" />
-     <Compile Include="Assets\testlight.cs" />
+     <Compile Include="Assets\Scripts\Underwater.cs" />
      <None Include="Assets\Scenes\blank.txt" />
      <None Include="Assets\Scripts\blank.txt" />
      <None Include="Assets\Models\blank.txt" />
      <None Include="Assets\Audio\blank.txt" />
      <None Include="Assets\Materials\blank.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -294,19 +295,19 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements.Editor">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/PackageCache/com.unity.ads@2.3.1/Runtime/UnityEngine.Advertisements.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/hve0002/Documents/dead-zone/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/lat0018/Documents/GitHub/dead-zone/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
