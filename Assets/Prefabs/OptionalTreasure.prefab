@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec486fd85d31ffc44964e2b60582d735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 2
 --- !u!33 &539106539309802316
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -359,3 +359,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0afc378702ab0429f0fc5f95b71409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeRenderers: []

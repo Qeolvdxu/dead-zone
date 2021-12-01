@@ -9,8 +9,8 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     private Rigidbody rigid;
     public static Movement player;
-    public GameObject gameoverText;
     public static int test = 0;
+    private bool gameEnded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,32 +58,48 @@ public class Movement : MonoBehaviour
 
     void DirectionalMovement()
     {
-        //Move player with velocity and only when not using grappling hook
+        //Move player with velocity
         //Using Vector3.ClampMagnitude() to prevent diagonal movement being much faster than cardinal movement
-        if (Input.GetKey("w"))
+        if(!gameEnded)
         {
-            Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z + movementSpeed);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
+            if (Input.GetKey("w"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z + movementSpeed);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
+            if (Input.GetKey("a"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x - movementSpeed, rigid.velocity.y, rigid.velocity.z);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
+            if (Input.GetKey("s"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z - movementSpeed);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
+            if (Input.GetKey("d"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x + movementSpeed, rigid.velocity.y, rigid.velocity.z);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
         }
-        if (Input.GetKey("a"))
-        {
-            Vector3 velocity = new Vector3(rigid.velocity.x - movementSpeed, rigid.velocity.y, rigid.velocity.z);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
-        }
-        if (Input.GetKey("s"))
-        {
-            Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z - movementSpeed);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
-        }
-        if (Input.GetKey("d"))
-        {
-            Vector3 velocity = new Vector3(rigid.velocity.x + movementSpeed, rigid.velocity.y, rigid.velocity.z);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
-        }
+        
     }
 
 
@@ -103,17 +119,25 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public bool IsEnded()
+    {
+        return gameEnded;
+    }    
+
    public void EndGame()
     {
+        HUD.playerHUD.ShowGameover();
         test++;
-        GameObject localText;
-        Vector3 gameOverLocation = MoveWithPlayerCamera.cameraInstance.GetCameraPosition();
-        gameOverLocation.y = gameOverLocation.y - 20.0f;
-        localText = Instantiate<GameObject>(gameoverText);
-        gameoverText.transform.position = gameOverLocation;
-        Destroy(this.gameObject);
-        SceneManager.LoadScene("level_0");
+        gameEnded = true;
+        StartCoroutine(Gameover());
     }
 
+
+
+    IEnumerator Gameover()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("level_0");
+    }
 
 }
