@@ -22,4 +22,10 @@ public class GetTreasurePosition : MonoBehaviour
         Vector3 position = this.transform.position;
         return position;
     }
+
+    public void DestroyTreasure()
+    {
+        PlayerScore.PScore.IncreaseScore(100);
+        Destroy(this.gameObject);
+    }
 }
