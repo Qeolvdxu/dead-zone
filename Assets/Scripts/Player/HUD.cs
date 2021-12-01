@@ -8,6 +8,8 @@ public class HUD : MonoBehaviour
     private TextMesh textScore, textLives;
     private Renderer gameoverText;
     public static HUD playerHUD;
+    //private static int score = 0;
+    //private static int lives = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,6 @@ public class HUD : MonoBehaviour
 
     public void UpdateScore(int newScore)
     {
-        print("test");
         textScore.text = "Score: " + newScore;
     }
 
