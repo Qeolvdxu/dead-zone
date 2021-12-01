@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTest: {fileID: 0}
-  grappleLength: 60
+  grappleLength: 120
 --- !u!1 &5463315321026577088
 GameObject:
   m_ObjectHideFlags: 0
