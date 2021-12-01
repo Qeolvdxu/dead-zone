@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     private Rigidbody rigid;
     public static Movement player;
-    public static int test = 0;
+    //public static int test = 0;
     private bool gameEnded = false;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         player = GetComponent<Movement>();
-        print("Test: " + test);
+        //print("Test: " + test);
     }
 
     // Update is called once per frame
@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour
    public void EndGame()
     {
         HUD.playerHUD.ShowGameover();
-        test++;
+        //test++;
         gameEnded = true;
         StartCoroutine(Gameover());
     }
