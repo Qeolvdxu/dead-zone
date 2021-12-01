@@ -28,7 +28,7 @@ public class PlayerLives : MonoBehaviour
         if (collision.gameObject.tag == "Death" || collision.gameObject.tag == "Angler")
         {
             HUD.playerHUD.RemoveLife();
-            if(PlayerLives.PLives.GetLives() != 0)
+            if(numLives != 0)
             {
                 this.transform.position = spawnPosition;
             }
