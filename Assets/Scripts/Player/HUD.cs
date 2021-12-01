@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
         textScore = this.transform.Find("ScoreText").GetComponent<TextMesh>();
         textLives = this.transform.Find("LivesText").GetComponent<TextMesh>();
         gameoverText = this.transform.Find("GameOverText").GetComponent<Renderer>();
-        textLives.text = "Lives: " + PlayerLives.PLives.GetLives();
+        textLives.text = "Lives: " + 3;
         UpdateScore(PlayerScore.PScore.GetScore());
         
     }

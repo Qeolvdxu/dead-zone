@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Player\GrappleHook.cs" />
     <Compile Include="Assets\Scripts\Player\GrappleUse.cs" />
     <Compile Include="Assets\Scripts\Player\HUD.cs" />
+    <Compile Include="Assets\Scripts\Player\LevelHandler.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\Scripts\Player\MoveWithPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\MoveWithPlayerCamera.cs" />
@@ -81,7 +82,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerScore.cs" />
     <Compile Include="Assets\Scripts\Sticky.cs" />
     <Compile Include="Assets\Scripts\testlight.cs" />
-    <Compile Include="Assets\Scripts\Treasure\colorCahnger.cs" />
+    <Compile Include="Assets\Scripts\Treasure\colorChanger.cs" />
     <Compile Include="Assets\Scripts\Treasure\GetTreasurePosition.cs" />
     <Compile Include="Assets\Scripts\Treasure\OptionalTreasureCollide.cs" />
     <Compile Include="Assets\Scripts\Treasure\OptionalTreasureFloat.cs" />
