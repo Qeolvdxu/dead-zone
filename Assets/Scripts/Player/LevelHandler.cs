@@ -29,7 +29,13 @@ public class LevelHandler : MonoBehaviour
 
     public void Gameover()
     {
+        currentLevel = 1;
+        SceneManager.LoadScene(levels[currentLevel]);
+    }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene(levels[0]);
     }
 
 
