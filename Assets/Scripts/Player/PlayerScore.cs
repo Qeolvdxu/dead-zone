@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerScore : MonoBehaviour
 {
     public static PlayerScore PScore;
-    private int score;
+    public static int score = 0;
     // Start is called before the first frame update
     void Start()
     {
         PScore = GetComponent<PlayerScore>();
-        score = 0;
         print("Score is: " + score);
     }
 
@@ -23,7 +22,14 @@ public class PlayerScore : MonoBehaviour
     public void IncreaseScore(int increaseAmount)
     {
         score += increaseAmount;
+        HUD.playerHUD.UpdateScore(score);
         print("Score is: " + score);
+    }
+
+
+    public int GetScore()
+    {
+        return score;
     }
 
 }
