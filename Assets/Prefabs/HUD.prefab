@@ -257,8 +257,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7155020390668683409}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -19.56, y: -11.199997, z: -9.46}
-  m_LocalScale: {x: 1.2083, y: 1.2083006, z: 1.2083006}
+  m_LocalPosition: {x: -19.65, y: -11.199997, z: -9.36}
+  m_LocalScale: {x: 1.3748809, y: 1.3748817, z: 1.3748817}
   m_Children: []
   m_Father: {fileID: 7155020389609338762}
   m_RootOrder: 1
@@ -310,7 +310,7 @@ TextMesh:
   m_GameObject: {fileID: 7155020390668683409}
   m_Text: 'Lives:'
   m_OffsetZ: 0
-  m_CharacterSize: 5.47
+  m_CharacterSize: 0.15
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
