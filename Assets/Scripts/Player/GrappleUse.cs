@@ -12,7 +12,9 @@ public class GrappleUse : MonoBehaviour
     public bool grappleAllowed;
     public float grappleTreasureForce;
     private bool isGrappling = false;
+    private bool unclampMagnitude = false;
     private int directionFlag;
+    private Vector3 hookLocation;
     private Rigidbody rigid;
     private Rigidbody rigidTreasure;
 
@@ -28,6 +30,10 @@ public class GrappleUse : MonoBehaviour
     void Update()
     {
         DirectionButton();
+        if(Vector3.Distance(this.transform.position, hookLocation) < 15.0f)
+        {
+            unclampMagnitude = false;
+        }
     }
     
     void DirectionButton()
@@ -68,6 +74,7 @@ public class GrappleUse : MonoBehaviour
     {
         yield return new WaitForSeconds(grappleCooldown);
         isGrappling = false;
+        unclampMagnitude = false;
     }
 
     void ShootGrapple()
@@ -116,6 +123,7 @@ public class GrappleUse : MonoBehaviour
 
     public void GrapplePull(Vector3 grappleLocation)
     {
+        unclampMagnitude = true;
         StartCoroutine(GrappleCooldown());
         Vector3 direction;
         //Get the vector going from the player to the location to grapple towards
@@ -138,4 +146,13 @@ public class GrappleUse : MonoBehaviour
         grappleAllowed = true;
     }
 
+    public bool TestClampMagnitude()
+    {
+        return unclampMagnitude;
+    }
+
+    public void updateHookLocation(Vector3 input)
+    {
+        hookLocation = input;
+    }
 }
