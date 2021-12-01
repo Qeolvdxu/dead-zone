@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class colorCahnger : MonoBehaviour
+public class colorChanger : MonoBehaviour
 {
     public Component[] cubeRenderers;
     // Start is called before the first frame update

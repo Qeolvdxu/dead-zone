@@ -8,6 +8,8 @@ public class HUD : MonoBehaviour
     private TextMesh textScore, textLives;
     private Renderer gameoverText;
     public static HUD playerHUD;
+    //private static int score = 0;
+    //private static int lives = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,7 @@ public class HUD : MonoBehaviour
         textScore = this.transform.Find("ScoreText").GetComponent<TextMesh>();
         textLives = this.transform.Find("LivesText").GetComponent<TextMesh>();
         gameoverText = this.transform.Find("GameOverText").GetComponent<Renderer>();
-        textLives.text = "Lives: " + PlayerLives.PLives.GetLives();
+        textLives.text = "Lives: " + 3;
         UpdateScore(PlayerScore.PScore.GetScore());
         
     }
@@ -28,7 +30,6 @@ public class HUD : MonoBehaviour
 
     public void UpdateScore(int newScore)
     {
-        print("test");
         textScore.text = "Score: " + newScore;
     }
 

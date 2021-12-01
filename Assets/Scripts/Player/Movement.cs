@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     private Rigidbody rigid;
     public static Movement player;
-    public static int test = 0;
+    //public static int test = 0;
     private bool gameEnded = false;
 
     // Start is called before the first frame update
@@ -17,7 +16,7 @@ public class Movement : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         player = GetComponent<Movement>();
-        print("Test: " + test);
+        //print("Test: " + test);
     }
 
     // Update is called once per frame
@@ -102,8 +101,14 @@ public class Movement : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Exit")
+        {
+            LevelHandler.levelHandlerInstance.NextLevel();
+        }
+    }
 
-    
     private void FacingDirection()
     {
         //Make the player face in the direction they're moving
@@ -127,7 +132,7 @@ public class Movement : MonoBehaviour
    public void EndGame()
     {
         HUD.playerHUD.ShowGameover();
-        test++;
+        //test++;
         gameEnded = true;
         StartCoroutine(Gameover());
     }
@@ -137,7 +142,7 @@ public class Movement : MonoBehaviour
     IEnumerator Gameover()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("level_0");
+        LevelHandler.levelHandlerInstance.Gameover();
     }
 
 }
