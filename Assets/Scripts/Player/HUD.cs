@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
+    [Header("Inspector - Set Values")]
     private TextMesh textScore, textLives;
+    private Renderer gameoverText;
     public static HUD playerHUD;
-    private int numLives;
     // Start is called before the first frame update
     void Start()
     {
         playerHUD = GetComponent<HUD>();
         textScore = this.transform.Find("ScoreText").GetComponent<TextMesh>();
         textLives = this.transform.Find("LivesText").GetComponent<TextMesh>();
-        numLives = 3;
-        textLives.text = "Lives: " + numLives;
+        gameoverText = this.transform.Find("GameOverText").GetComponent<Renderer>();
+        textLives.text = "Lives: " + PlayerLives.PLives.GetLives();
+        UpdateScore(PlayerScore.PScore.GetScore());
+        
     }
 
     // Update is called once per frame
@@ -31,11 +34,16 @@ public class HUD : MonoBehaviour
 
     public void RemoveLife()
     {
-        numLives--;
-        textLives.text = "Lives: " + numLives;
-        if(numLives == 0)
+        PlayerLives.PLives.RemoveLife();
+        textLives.text = "Lives: " + PlayerLives.PLives.GetLives();
+        if(PlayerLives.PLives.GetLives() == 0)
         {
             Movement.player.EndGame();
         }
+    }
+    
+    public void ShowGameover()
+    {
+        gameoverText.enabled = true;
     }
 }
