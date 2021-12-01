@@ -76,29 +76,33 @@ public class GrappleUse : MonoBehaviour
         Rigidbody hookRigid;
         localHook = Instantiate<GameObject>(grapplingHookPrefab);
         hookRigid = localHook.GetComponent<Rigidbody>();
-        switch(directionFlag)
+        if(!Movement.player.IsEnded())
         {
-            //WILL NEED TO CHANGE THE TRANSFORM VALUES BELOW IF THE SIZE/SHAPE OF THE PLAYER CHANGES LATER TO MAKE SURE IT GETS CREATED JUST OUTSIDE OF THE PLAYER'S MODEL
-            case 0:
-                localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y-4, this.transform.position.z + 11f);
-                hookRigid.velocity = new Vector3(0.0f, 0.0f, hookVelocity);
-                break;
-            case 1:
-                localHook.transform.position = new Vector3(this.transform.position.x - 11f, this.transform.position.y-4, this.transform.position.z);
-                hookRigid.velocity = new Vector3(-hookVelocity, 0.0f, 0.0f);
-                break;
-            case 2:
-                localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y-4, this.transform.position.z - 11f);
-                hookRigid.velocity = new Vector3(0.0f, 0.0f, -hookVelocity);
-                break;
-            case 3:
-                localHook.transform.position = new Vector3(this.transform.position.x + 11f, this.transform.position.y-4, this.transform.position.z);
-                hookRigid.velocity = new Vector3(hookVelocity, 0.0f, 0.0f);
-                break;
+            switch (directionFlag)
+            {
+                //WILL NEED TO CHANGE THE TRANSFORM VALUES BELOW IF THE SIZE/SHAPE OF THE PLAYER CHANGES LATER TO MAKE SURE IT GETS CREATED JUST OUTSIDE OF THE PLAYER'S MODEL
+                case 0:
+                    localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 4, this.transform.position.z + 11f);
+                    hookRigid.velocity = new Vector3(0.0f, 0.0f, hookVelocity);
+                    break;
+                case 1:
+                    localHook.transform.position = new Vector3(this.transform.position.x - 11f, this.transform.position.y - 4, this.transform.position.z);
+                    hookRigid.velocity = new Vector3(-hookVelocity, 0.0f, 0.0f);
+                    break;
+                case 2:
+                    localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 4, this.transform.position.z - 11f);
+                    hookRigid.velocity = new Vector3(0.0f, 0.0f, -hookVelocity);
+                    break;
+                case 3:
+                    localHook.transform.position = new Vector3(this.transform.position.x + 11f, this.transform.position.y - 4, this.transform.position.z);
+                    hookRigid.velocity = new Vector3(hookVelocity, 0.0f, 0.0f);
+                    break;
+            }
+            //make the grapple hook face in the direction it's moving
+            localHook.transform.rotation = Quaternion.LookRotation(hookRigid.velocity);
+            localHook.transform.rotation = Quaternion.Euler(localHook.transform.rotation.eulerAngles.x + 90, localHook.transform.rotation.eulerAngles.y, localHook.transform.rotation.eulerAngles.z);
         }
-        //make the grapple hook face in the direction it's moving
-        localHook.transform.rotation = Quaternion.LookRotation(hookRigid.velocity);
-        localHook.transform.rotation = Quaternion.Euler(localHook.transform.rotation.eulerAngles.x + 90, localHook.transform.rotation.eulerAngles.y, localHook.transform.rotation.eulerAngles.z);
+        
     }
 
     public bool TestGrappling()

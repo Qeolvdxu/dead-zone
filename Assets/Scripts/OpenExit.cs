@@ -10,7 +10,6 @@ public class OpenExit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //text = GetComponentInChildren<Renderer>();
         text = this.transform.Find("TipText").GetComponent<Renderer>();
     }
 
@@ -18,17 +17,21 @@ public class OpenExit : MonoBehaviour
     void Update()
     {
         mainTreasureLocation = GetTreasurePosition.treasure.GetPosition();
-        if(Mathf.Sqrt(Mathf.Pow((this.transform.position.x - mainTreasureLocation.x), 2) + Mathf.Pow((this.transform.position.y - mainTreasureLocation.y), 2) + Mathf.Pow((this.transform.position.z - mainTreasureLocation.z), 2)) < 25.0f)
+        if (Vector3.Distance(this.transform.position, mainTreasureLocation) < 25.0f)
         {
+            //Destroy treasure object when it comes close to the exit wall
+            //and destroy the wall
+            GetTreasurePosition.treasure.DestroyTreasure();
             Destroy(this.gameObject);
             GrappleUse.grappleInstance.EnableGrapple();
         }
+
         playerLocation = GetPlayerPosition.player.GetPosition();
         if (Vector3.Distance(this.transform.position, playerLocation) < 50.0f)
         {
             text.enabled = true;
         }
-        else if(Mathf.Sqrt(Mathf.Pow((this.transform.position.x - playerLocation.x), 2) + Mathf.Pow((this.transform.position.y - playerLocation.y), 2) + Mathf.Pow((this.transform.position.z - playerLocation.z), 2)) > 50.0f)
+        else if(Vector3.Distance(this.transform.position, playerLocation) > 50.0f)
         {
             text.enabled = false;
         }

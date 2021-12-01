@@ -1,19 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
     [Header("Inspector - Set Values")]
     public float movementSpeed;
     private Rigidbody rigid;
-    private Vector3 spawnPosition;
+    public static Movement player;
+    public static int test = 0;
+    private bool gameEnded = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        spawnPosition = this.transform.position;
+        player = GetComponent<Movement>();
+        print("Test: " + test);
     }
 
     // Update is called once per frame
@@ -54,32 +58,48 @@ public class Movement : MonoBehaviour
 
     void DirectionalMovement()
     {
-        //Move player with velocity and only when not using grappling hook
+        //Move player with velocity
         //Using Vector3.ClampMagnitude() to prevent diagonal movement being much faster than cardinal movement
-        if (Input.GetKey("w"))
+        if(!gameEnded)
         {
-            Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z + movementSpeed);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
+            if (Input.GetKey("w"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z + movementSpeed);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
+            if (Input.GetKey("a"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x - movementSpeed, rigid.velocity.y, rigid.velocity.z);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
+            if (Input.GetKey("s"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z - movementSpeed);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
+            if (Input.GetKey("d"))
+            {
+                Vector3 velocity = new Vector3(rigid.velocity.x + movementSpeed, rigid.velocity.y, rigid.velocity.z);
+                if (!GrappleUse.grappleInstance.TestGrappling())
+                {
+                    velocity = Vector3.ClampMagnitude(velocity, 50.0f);
+                }
+                rigid.velocity = velocity;
+            }
         }
-        if (Input.GetKey("a"))
-        {
-            Vector3 velocity = new Vector3(rigid.velocity.x - movementSpeed, rigid.velocity.y, rigid.velocity.z);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
-        }
-        if (Input.GetKey("s"))
-        {
-            Vector3 velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, rigid.velocity.z - movementSpeed);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
-        }
-        if (Input.GetKey("d"))
-        {
-            Vector3 velocity = new Vector3(rigid.velocity.x + movementSpeed, rigid.velocity.y, rigid.velocity.z);
-            velocity = Vector3.ClampMagnitude(velocity, 50.0f);
-            rigid.velocity = velocity;
-        }
+        
     }
 
 
@@ -99,14 +119,25 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public bool IsEnded()
     {
-        //If the main treasure falls into a pit, it gets teleported back to where it originally spawned at
-        if (collision.gameObject.tag == "Death")
-        {
-            this.transform.position = spawnPosition;
-        }
+        return gameEnded;
+    }    
+
+   public void EndGame()
+    {
+        HUD.playerHUD.ShowGameover();
+        test++;
+        gameEnded = true;
+        StartCoroutine(Gameover());
     }
 
+
+
+    IEnumerator Gameover()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("level_0");
+    }
 
 }
