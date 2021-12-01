@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 7985752745333649509}
   - component: {fileID: 3306553267021874002}
   - component: {fileID: 5439153316462726054}
+  - component: {fileID: 2211997210717665842}
   m_Layer: 0
   m_Name: BoundingBox
   m_TagString: Player
@@ -523,6 +524,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74409ca610628574a9790091e806531e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2211997210717665842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360251335886547701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfb58a058d9b6f47a9463fb0ca085e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5360251336009841303
