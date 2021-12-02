@@ -8,15 +8,16 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     private Rigidbody rigid;
     public static Movement player;
-    //public static int test = 0;
+    
     private bool gameEnded = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //used to modify velocity
         rigid = GetComponent<Rigidbody>();
+        //used to call functions in this script in other scripts
         player = GetComponent<Movement>();
-        //print("Test: " + test);
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class Movement : MonoBehaviour
         DirectionalMovement();
         VelocityDampener();
         FacingDirection();
+        //Add more gravity to just the player
         rigid.AddForce(Physics.gravity * rigid.mass * 5);
     }
 
@@ -58,6 +60,7 @@ public class Movement : MonoBehaviour
     void DirectionalMovement()
     {
         //Move player with velocity
+        //Disables movement when a gameover occurs
         //Using Vector3.ClampMagnitude() to prevent diagonal movement being much faster than cardinal movement
         if(!gameEnded)
         {
