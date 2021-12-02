@@ -8,15 +8,16 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     private Rigidbody rigid;
     public static Movement player;
-    //public static int test = 0;
+    
     private bool gameEnded = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //used to modify velocity
         rigid = GetComponent<Rigidbody>();
+        //used to call functions in this script in other scripts
         player = GetComponent<Movement>();
-        //print("Test: " + test);
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class Movement : MonoBehaviour
         DirectionalMovement();
         VelocityDampener();
         FacingDirection();
+        //Add more gravity to just the player
         rigid.AddForce(Physics.gravity * rigid.mass * 5);
     }
 
@@ -58,6 +60,7 @@ public class Movement : MonoBehaviour
     void DirectionalMovement()
     {
         //Move player with velocity
+        //Disables movement when a gameover occurs
         //Using Vector3.ClampMagnitude() to prevent diagonal movement being much faster than cardinal movement
         if(!gameEnded)
         {
@@ -103,9 +106,16 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //if collide with exit, go to next level
         if(collision.gameObject.tag == "Exit")
         {
             LevelHandler.levelHandlerInstance.NextLevel();
+        }
+        //if collide with finish, show win screen
+        if(collision.gameObject.tag == "Finish")
+        {
+            HUD.playerHUD.ShowWin();
+            gameEnded = true;
         }
     }
 
@@ -124,11 +134,13 @@ public class Movement : MonoBehaviour
         }
     }
 
+    //allows other scripts to test if the game is ended or not
     public bool IsEnded()
     {
         return gameEnded;
     }    
 
+    //end the game
    public void EndGame()
     {
         HUD.playerHUD.ShowGameover();
@@ -138,10 +150,11 @@ public class Movement : MonoBehaviour
     }
 
 
-
+    //add a delay between showing the gameover screen and going back to level 1
     IEnumerator Gameover()
     {
         yield return new WaitForSeconds(2);
+        PlayerScore.PScore.ResetScore();
         LevelHandler.levelHandlerInstance.Gameover();
     }
 

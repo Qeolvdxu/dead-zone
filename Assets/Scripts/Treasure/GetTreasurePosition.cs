@@ -17,12 +17,14 @@ public class GetTreasurePosition : MonoBehaviour
         
     }
 
+    //Other scripts can get current treasure position
     public Vector3 GetPosition()
     {
         Vector3 position = this.transform.position;
         return position;
     }
 
+    //Other scripts can destroy main treasure
     public void DestroyTreasure()
     {
         PlayerScore.PScore.IncreaseScore(100);

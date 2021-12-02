@@ -10,7 +10,6 @@ public class PlayerScore : MonoBehaviour
     void Start()
     {
         PScore = GetComponent<PlayerScore>();
-        print("Score is: " + score);
     }
 
     // Update is called once per frame
@@ -19,17 +18,23 @@ public class PlayerScore : MonoBehaviour
         
     }
     
+    //Other scripts can increase current score by the passed in amount
     public void IncreaseScore(int increaseAmount)
     {
         score += increaseAmount;
         HUD.playerHUD.UpdateScore(score);
-        print("Score is: " + score);
     }
 
-
+    //Other scripts can get current score
     public int GetScore()
     {
         return score;
+    }
+
+    //Other scripts can reset score to 0
+    public void ResetScore()
+    {
+        score = 0;
     }
 
 }

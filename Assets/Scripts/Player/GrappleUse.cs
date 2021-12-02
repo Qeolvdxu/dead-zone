@@ -22,7 +22,9 @@ public class GrappleUse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //used to access functions in this script from other scripts
         grappleInstance = GetComponent<GrappleUse>();
+        //used to modify velocity
         rigid = GetComponent<Rigidbody>();
     }
 
@@ -30,7 +32,8 @@ public class GrappleUse : MonoBehaviour
     void Update()
     {
         DirectionButton();
-        if(Vector3.Distance(this.transform.position, hookLocation) < 25.0f)
+        //Reclamp player max speed velocity magnitude once the grapple has finished
+        if(Vector3.Distance(this.transform.position, hookLocation) < 10.0f)
         {
             unclampMagnitude = false;
         }
@@ -70,6 +73,7 @@ public class GrappleUse : MonoBehaviour
         }
 
     }
+    //Cooldown for reseting isGrappling flag
     IEnumerator GrappleCooldown()
     {
         yield return new WaitForSeconds(grappleCooldown);
@@ -77,17 +81,19 @@ public class GrappleUse : MonoBehaviour
         unclampMagnitude = false;
     }
 
+    
     void ShootGrapple()
     {
         GameObject localHook;
         Rigidbody hookRigid;
         localHook = Instantiate<GameObject>(grapplingHookPrefab);
         hookRigid = localHook.GetComponent<Rigidbody>();
+        //only allows to use grapple if the game hasn't ended
         if(!Movement.player.IsEnded())
         {
+            //Shoot grapple in direction according to the direction flag
             switch (directionFlag)
             {
-                //WILL NEED TO CHANGE THE TRANSFORM VALUES BELOW IF THE SIZE/SHAPE OF THE PLAYER CHANGES LATER TO MAKE SURE IT GETS CREATED JUST OUTSIDE OF THE PLAYER'S MODEL
                 case 0:
                     localHook.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 4, this.transform.position.z + 11f);
                     hookRigid.velocity = new Vector3(0.0f, 0.0f, hookVelocity);
@@ -112,15 +118,19 @@ public class GrappleUse : MonoBehaviour
         
     }
 
+    //allows other functions to test if currently grappling
     public bool TestGrappling()
     {
         return isGrappling;
     }
+
+    //allows other functions to change isGrappling value
     public void SetNotGrappling()
     {
         isGrappling = false;
     }
 
+    //Pull user to grapple location
     public void GrapplePull(Vector3 grappleLocation)
     {
         unclampMagnitude = true;
@@ -133,6 +143,7 @@ public class GrappleUse : MonoBehaviour
         
     }
 
+    //pull grappled treasure to the player
     public void GrappleTreasure(GameObject treasure)
     {
         rigidTreasure = treasure.GetComponent<Rigidbody>();
@@ -141,16 +152,19 @@ public class GrappleUse : MonoBehaviour
         rigidTreasure.velocity = direction*grappleTreasureForce;
     }
 
+    //allows other scripts to modify grappleEnabled variable
     public void EnableGrapple()
     {
         grappleAllowed = true;
     }
 
+    //allows other scripts to test if the player's velicty magnitude is clamped or not
     public bool TestClampMagnitude()
     {
         return unclampMagnitude;
     }
 
+    //used to test where the hook is currently at
     public void updateHookLocation(Vector3 input)
     {
         hookLocation = input;

@@ -2949,6 +2949,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 3686603869393462569, guid: fd32e550da23a354dbc271fea5190601,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 130130350166495343, guid: fd32e550da23a354dbc271fea5190601,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3971,6 +3976,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f3e646816544fad4092c4bcceba2ae6f, type: 2}
+    - target: {fileID: 92271649298146393, guid: 7cc32567e509b114ebab1046915f2963,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 350337680295193846, guid: 7cc32567e509b114ebab1046915f2963,
         type: 3}
       propertyPath: m_Text

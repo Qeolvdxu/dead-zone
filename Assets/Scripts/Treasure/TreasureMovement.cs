@@ -19,6 +19,7 @@ public class TreasureMovement : MonoBehaviour
         VelocityDampener();
     }
 
+    //Velocity dampener to prevent treasure from rolling a bunch after being grappled
     void VelocityDampener()
     {
         if (Mathf.Abs(rigid.velocity.x) > 0)
