@@ -20,10 +20,12 @@ public class OptionalTreasureCollide : MonoBehaviour
         
     }
 
+    //If player collides with optional treasure, increase score. If player collides with fuel, increase light range around player
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "TreasureOpt")
         {
+            //hasCollided used to make sure multiple collisions w/ the treasure don't count for multiple points
             if(hasCollided == false)
             {
                 hasCollided = true;

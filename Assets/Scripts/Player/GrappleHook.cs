@@ -19,10 +19,9 @@ public class GrappleHook : MonoBehaviour
     void Update()
     {
         //destroy the grappling hook if it doesn't find anything to latch onto
-        if (Mathf.Sqrt(Mathf.Pow((this.transform.position.x - hookSpawnLocation.x), 2) + Mathf.Pow((this.transform.position.z - hookSpawnLocation.z), 2)) > grappleLength)
+        if (Vector3.Distance(this.transform.position, hookSpawnLocation) > grappleLength)
         {
             Destroy(this.gameObject);
-            //GrappleUse.grappleInstance.SetNotGrappling();
         }
 
     }
@@ -34,12 +33,15 @@ public class GrappleHook : MonoBehaviour
         Rigidbody rigid = GetComponent<Rigidbody>();
         rigid.velocity = Vector3.zero;
         self.enabled = false;
+
+        //If collide with wall, run GrapplePull function from the GrappleUse script
         if (collision.gameObject.tag == "Wall")
         {
             GrappleUse.grappleInstance.GrapplePull(this.transform.position);
             GrappleUse.grappleInstance.updateHookLocation(this.transform.position);
             StartCoroutine(destroySelfAfterSeconds(0.5f));
         }
+        //if collide w/ main treasure, run GrappleTreasure function from the GrappleUse script
         else if(collision.gameObject.tag == "Treasure")
         {
             GrappleUse.grappleInstance.GrappleTreasure(collision.gameObject);

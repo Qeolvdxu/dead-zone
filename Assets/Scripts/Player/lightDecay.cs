@@ -19,6 +19,7 @@ public class lightDecay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //make the light around player get smaller while it's above a certain range
         if (lt.range > 50f)
         {
             lt.range -= .1f;

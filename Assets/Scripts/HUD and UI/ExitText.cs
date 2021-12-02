@@ -16,6 +16,7 @@ public class ExitText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Show tips that popup when the player comes near
         playerLocation = GetPlayerPosition.player.GetPosition();
         if (Vector3.Distance(this.transform.position, playerLocation) < 50.0f)
         {

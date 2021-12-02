@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Used to move objects relative to the player's position
 public class MoveWithPlayer : MonoBehaviour
 {
     [Header("Inspector - Set Values")]

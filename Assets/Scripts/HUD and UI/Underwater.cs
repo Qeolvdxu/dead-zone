@@ -19,6 +19,7 @@ public class Underwater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Apply an underwater effect to the camera
         if ((transform.position.y < waterHeight) != isUnderwater)
         {
             isUnderwater = transform.position.y < waterHeight;

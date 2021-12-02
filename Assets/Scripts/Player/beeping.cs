@@ -18,6 +18,7 @@ public class beeping : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Adjust the frequency and pitch of the pinging sound the closer the player is to an angler fish
         timer += Time.deltaTime;
         Vector3 angler = GameObject.FindGameObjectWithTag("AnglerFish").transform.position;
         Vector3 player = this.transform.position;
