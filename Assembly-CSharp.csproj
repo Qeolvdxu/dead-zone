@@ -65,30 +65,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Angler\angler.cs" />
-    <Compile Include="Assets\Scripts\beeping.cs" />
-    <Compile Include="Assets\Scripts\ExitText.cs" />
-    <Compile Include="Assets\Scripts\lightDecay.cs" />
-    <Compile Include="Assets\Scripts\MenuButtons.cs" />
+    <Compile Include="Assets\Scripts\HUD and UI\ExitText.cs" />
+    <Compile Include="Assets\Scripts\HUD and UI\MenuButtons.cs" />
+    <Compile Include="Assets\Scripts\HUD and UI\Underwater.cs" />
     <Compile Include="Assets\Scripts\MovingPlat.cs" />
     <Compile Include="Assets\Scripts\OpenExit.cs" />
+    <Compile Include="Assets\Scripts\Player\beeping.cs" />
     <Compile Include="Assets\Scripts\Player\GetPlayerPosition.cs" />
     <Compile Include="Assets\Scripts\Player\GrappleHook.cs" />
     <Compile Include="Assets\Scripts\Player\GrappleUse.cs" />
     <Compile Include="Assets\Scripts\Player\HUD.cs" />
     <Compile Include="Assets\Scripts\Player\LevelHandler.cs" />
+    <Compile Include="Assets\Scripts\Player\lightDecay.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\Scripts\Player\MoveWithPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\MoveWithPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLives.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerScore.cs" />
-    <Compile Include="Assets\Scripts\Sticky.cs" />
     <Compile Include="Assets\Scripts\testlight.cs" />
     <Compile Include="Assets\Scripts\Treasure\colorChanger.cs" />
     <Compile Include="Assets\Scripts\Treasure\GetTreasurePosition.cs" />
     <Compile Include="Assets\Scripts\Treasure\OptionalTreasureCollide.cs" />
     <Compile Include="Assets\Scripts\Treasure\OptionalTreasureFloat.cs" />
     <Compile Include="Assets\Scripts\Treasure\TreasureMovement.cs" />
-    <Compile Include="Assets\Scripts\Underwater.cs" />
     <None Include="Assets\Scenes\blank.txt" />
     <None Include="Assets\Scripts\blank.txt" />
     <None Include="Assets\Models\blank.txt" />

@@ -24,6 +24,7 @@ public class LevelHandler : MonoBehaviour
     public void NextLevel()
     {
         //Progresses to the next level when one is completed
+        //Don't need a case for level_3 because that's the final level
         currentLevelString = SceneManager.GetActiveScene().name;
         switch(currentLevelString)
         {
@@ -36,20 +37,21 @@ public class LevelHandler : MonoBehaviour
             case "level_2":
                 SceneManager.LoadScene("level_3");
                 break;
-            case "level_3":
-                SceneManager.LoadScene("level_4");
-                break;
-            case "level_4":
-                SceneManager.LoadScene("level_5");
-                break;
         }
         
     }
 
     public void Gameover()
     {
-        //Go back to level one when you gameover
-        SceneManager.LoadScene("level_1");
+        //Go back to level one when you gameover, or the tutorial level if you gameover while in the tutorial
+        if(SceneManager.GetActiveScene().name == "level_0")
+        {
+            SceneManager.LoadScene("level_0");
+        }
+        else
+        {
+            SceneManager.LoadScene("level_1");
+        }
     }
 
     public void StartGame()

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 [ExecuteInEditMode]
 public class testlight : MonoBehaviour
 {
+    //Modify the lighting in the game
     public void OnEnable()
     {
         Lightmapping.RequestLightsDelegate testDel = (Light[] requests, Unity.Collections.NativeArray<LightDataGI> lightsOutput) =>

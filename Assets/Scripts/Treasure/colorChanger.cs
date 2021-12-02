@@ -8,8 +8,10 @@ public class colorChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //grab all the parts of the treasure prefab
         cubeRenderers = GetComponentsInChildren<Renderer>();
 
+        //select a random color and set all the pieces to be that color
         int select = (int)Mathf.Floor(Random.Range(1f, 5f));
         foreach (Renderer cubeRenderer in cubeRenderers)
         {

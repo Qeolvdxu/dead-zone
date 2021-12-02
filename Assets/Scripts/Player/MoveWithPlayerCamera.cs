@@ -19,6 +19,7 @@ public class MoveWithPlayerCamera : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //move camera with player
         Vector3 playerPosition;
         float yPosition;
         yPosition = this.transform.position.y;
@@ -30,6 +31,7 @@ public class MoveWithPlayerCamera : MonoBehaviour
         this.transform.position = playerPosition;
     }
 
+    //Allows other scripts to get the camera's current position
     public Vector3 GetCameraPosition()
     {
         return this.transform.position;

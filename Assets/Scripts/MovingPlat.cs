@@ -20,7 +20,7 @@ public class MovingPlat : MonoBehaviour
 
     void Update()
     {
-
+        //Move a platform back and forth by the specified distance and speed
 
         if (transform.position.x > rightLimit)
         {

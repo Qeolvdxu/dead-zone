@@ -106,9 +106,16 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //if collide with exit, go to next level
         if(collision.gameObject.tag == "Exit")
         {
             LevelHandler.levelHandlerInstance.NextLevel();
+        }
+        //if collide with finish, show win screen
+        if(collision.gameObject.tag == "Finish")
+        {
+            HUD.playerHUD.ShowWin();
+            gameEnded = true;
         }
     }
 
@@ -127,11 +134,13 @@ public class Movement : MonoBehaviour
         }
     }
 
+    //allows other scripts to test if the game is ended or not
     public bool IsEnded()
     {
         return gameEnded;
     }    
 
+    //end the game
    public void EndGame()
     {
         HUD.playerHUD.ShowGameover();
@@ -141,10 +150,11 @@ public class Movement : MonoBehaviour
     }
 
 
-
+    //add a delay between showing the gameover screen and going back to level 1
     IEnumerator Gameover()
     {
         yield return new WaitForSeconds(2);
+        PlayerScore.PScore.ResetScore();
         LevelHandler.levelHandlerInstance.Gameover();
     }
 
